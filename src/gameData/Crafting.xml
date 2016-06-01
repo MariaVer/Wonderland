@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Crafting>
+<WorkPlatform>
+
+	<Default>
+		<MudStatue>
+			1 Little Statue
+			1 Mixed Noodles
+		</MudStatue>
+		<CoconutBasin>
+			1 coconut
+		</CoconutBasin>
+		<WoodenSaw>
+			1 Shale
+			1 Lauan
+		</WoodenSaw>
+		<StoneKnife>
+			1 Shale
+			1 Lauan
+		</StoneKnife>
+		<Coconut>
+			1 coconut
+		</Coconut>	
+	</Default>
+
+	<StoneKnife>
+		<WoodenBridge>
+			3 Linen Rope
+			10 Lauan
+		</WoodenBridge>
+		<Sashimi>
+			1 Salmon
+		</Sashimi>
+		<NigiriSushi>
+			1 White Rice
+			1 Salmon
+			1 Firewood
+		</NigiriSushi>
+		<SalmonSushi>
+			1 WhiteRice
+			2 SalmonRoes
+			1 Firewood
+		</SalmonSushi>
+		<FuguSashimi>
+			1 Fugu
+			1 Firewood
+		</FuguSashimi>
+		<FuguNigiriSushi>
+			1 White Rice
+			1 Fugu Sashimi
+			1 Firewood
+		</FuguNigiriSushi>
+		<WoodenAxle>
+			1 Lauan Wood
+		</WoodenAxle>
+		<Resin>
+			5 Lauan 
+		</Resin>
+		<Firewood ammount="2">
+			1 Ordinary Wood
+		</Firewood>
+		<StoreRoom>
+			5 Lauan Wood
+			3 Ordinary Wood
+		</StoreRoom>
+		<OrdinaryWood ammount="2">
+			1 Wood
+		</OrdinaryWood>
+		<OakWood ammount="2">
+			1 Oak
+		</OakWood>
+		<LauanWood ammount="2">
+			1 Lauan
+		</LauanWood>
+		<CypressWood ammount="2">
+			1 Cypress
+		</CypressWood>
+		<Boat>
+			5 Lauan Wood
+		</Boat>
+		<Raft>
+			5 Lauan
+			9 Linen Rope
+		</Raft>	
+	</StoneKnife>
+
+	<WoodenSaw>
+		<WoodenHook ammount="2">
+			1 Oak Wood		
+		</WoodenHook>
+		<SmallWoodenGear ammount="3">
+			1 Lauan Wood		
+		</SmallWoodenGear>
+		<GreatFishingTool>
+			1 Rod
+			1 Wooden Hook
+			1 Fishing Thread
+		</GreatFishingTool>	
+		<WaterEquipment>
+			2 Oak Wood
+			3 Turpentine
+			3 Rubber
+		</WaterEquipment>
+		<Rod>
+			1 Bamboo
+		</Rod>
+		<Cask>
+			2 Vine Grass
+			2 Lauan Wood
+		</Cask>
+		<RopeLadder>
+			6 Linen Rope
+			12 Lauan
+		</RopeLadder>
+		<PaperMachine>
+			4 Lauan Wood
+			4 Vine		
+		</PaperMachine>
+		<SpinningMachine>
+			4 Lauan Wood
+			2 Wooden Axle
+		</SpinningMachine>
+		<Loom>
+			8 Lauan Wood
+		</Loom>
+		<WoodBathtub>
+			6 Cypress
+			4 Linen Rope
+		</WoodBathtub>
+		<ElmBathtub>
+			1 Wood Bathtub
+			1 Integrated Flavour
+			1 Water equipment
+		</ElmBathtub>	
+	</WoodenSaw>
+	
+	<RopeSaw>
+		<WoodenWinch>
+			1 Lauan Wood
+		</WoodenWinch>
+		<BigWoodenGear>
+			1 Lauan Wood			
+		</BigWoodenGear>
+		<MediumWoodenGear ammount="2">
+			1 Oak Wood		
+		</MediumWoodenGear>
+		<WoodenPulley>
+			1 Oak Wood		
+		</WoodenPulley>
+		<Ladder>
+			2 Lauan Wood
+			10 Nail
+		</Ladder>
+		<AirShipSteer>
+			2 Lauan Wood
+			3 Original Rubber
+		</AirShipSteer>
+		<Proppeler>
+			2 Oak Wood
+		</Proppeler>
+		<WoodenPedals>
+			2 Oak Wood
+			1 Wooden Winch
+		</WoodenPedals>
+		<WoodenHandle>
+			2 Lauan Wood
+			1 Original Rubber
+		</WoodenHandle>
+		<Pail>
+			2 Lauan Wood
+			10 Nail
+			2 Wire
+		</Pail>
+		<BenchSaw>
+			7 Lauan Wood
+			3 Wooden Axle
+			2 Round Saw
+			3 Medium Wooden Gear
+			6 Small Wooden Gear
+		</BenchSaw>
+		<WoodBell>
+			4 Metal Gear
+			2 Lauan Wood
+			1 Iron Fillet
+			2 Copper
+			3 Small Wooden Gear
+		</WoodBell>
+		<Hammock>
+			2 Oak Wood
+			2 Oak
+			4 Cotton Cloth
+			2 Linen Thread			
+		</Hammock>
+		<StandBell>
+			1 Big Wooden Gear
+			2 Medium Wooden Gear
+			5 Small Wooden Gear
+			1 Lauan Wood
+			1 Iron Fillet
+		</StandBell>
+		<Window>
+			2 Lauan Wood
+		</Window>
+		<DoorPlate>
+			2 Lauan Wood
+			1 Grey Clay
+			1 Black Clay
+		</DoorPlate>
+		<Tile>
+			4 Cypress Wood
+			3 Original Rubber
+		</Tile>
+		<MessageBoard>
+			10 Black Clay
+			4 Yellow Clay
+			12 Lauan Wood
+			5 Paper
+			2 Cotton Cloth
+		</MessageBoard>
+		<PirateShipModel>
+			5 Cypress Wood
+			3 Cotton Cloth
+			5 Cotton Thread
+			5 Original Rubber
+			1 Corsair Blueprint
+		</PirateShipModel>
+		<Fence>
+			8 Lauan
+			12 Nail
+			4 Linen Rope
+		</Fence>
+		<DecorativeDolphin>
+			2 Lauan Wood
+			2 Dye
+		</DecorativeDolphin>
+		<RedWindow>
+			2 Lauan Wood
+			2 Glass
+			1 Cotton Cloth
+			1 Dye
+		</RedWindow>
+		<BlueWindow>
+			2 Lauan Wood
+			2 Glass
+			1 Cotton Cloth
+			1 Dye
+		</BlueWindow>
+		<ChristmasTree>
+			5 Cypress
+			50 Vine Grass
+			5 Golden Flower
+			2 Original Rubber
+		</ChristmasTree>
+		<GuguClock>
+			4 Metal Gear
+			4 Cypress Wood
+			1 Iron Fillet
+			2 Copper
+			3 Small Wooden Gear
+		</GuguClock>
+		<PictureFrame>
+			4 Cypress Wood
+			8 Nail
+			2 Paper
+		</PictureFrame>
+		<GoodPictureFrame>
+			4 Cypress Wood
+			8 Nail
+			2 Paper
+		</GoodPictureFrame>
+		<KatanaDisplay>
+			5 Cypress Wood
+			5 Nail
+			1 Katana
+			1 Violet Falchion
+			1 Red Falchion
+		</KatanaDisplay>
+		<ClassicLightEast>
+			5 Cypress Wood
+			5 Paper
+			2 Original Rubber
+			4 Nail
+			1 Lamp
+		</ClassicLightEast>
+		<LoveWindow>
+			2 Lauan Wood
+			2 Glass
+			1 Dye
+		</LoveWindow>
+		<WallPainting>
+			4 Cypress Wood
+			8 Nail
+			3 Paper
+			3 Prepared Chinese Ink
+		</WallPainting>	
+	</RopeSaw>
+	
+	<Pliers>
+		<LuxuryFishingTool>
+			1 Rod
+			1 Iron Hook
+			1 Fishing Thread
+			1 Wooden Winch
+		</LuxuryFishingTool>
+		<AssistantDevice>
+			1 Small Engine
+			1 Propeller
+			3 Cypress Wood
+		</AssistantDevice>
+		<Sprinkler>
+			3 Wire
+			1 Shower Part
+			1 Water Tank
+		</Sprinkler>
+		<TransformerWinding>
+			1 Iron Fillet
+			3 Enamel Wire
+		</TransformerWinding>
+		<Winding>
+			2 Enamel Wire
+			1 Rubber
+		</Winding>
+		<MusicDevice>
+			6 Nail
+			6 Steel String
+			3 Cypress Wood
+			1 Rubber
+		</MusicDevice>
+		<BrandIron>
+			2 Iron Fillet
+			5 Wires
+			1 Lauan Wood
+		</BrandIron>
+	</Pliers>
+	
+	<Whetstone>
+		<Needle ammount="2">
+			1 Wire
+		</Needle>
+	</Whetstone>
+	
+	<Needle>
+		<BulletProofVest>
+			2 Alloy
+			3 Sealed Potion
+			2 Acrylic Plate
+			10 Cotton Thread
+		</BulletProofVest>
+		<DefenseVest>
+			1 Bullet Proof Vest
+			2 Titanium Alloy
+			1 Sealed Potion
+			4 Cotton Thread
+			4 Linen Thread
+		</DefenseVest>
+		<CoffeePack>
+			5 Black Coffee
+			2 Cotton Cloth
+			1 Linen Thread
+			3 Cotton Wool
+		</CoffeePack>
+		<LeatherBag>
+			3 Linen Thread
+			3 Beast Fur
+		</LeatherBag>
+		<BigLinenCloth>
+			1 Linen Carpet
+			2 Cotton Cloth
+			3 Beast Fur
+		</BigLinenCloth>
+		<SandBag>
+			3 Cotton Thread
+			2 Cotton Cloth
+			5 Grey Clay
+		</SandBag>
+		<DemonLeather>
+			8 Demon Fur
+		</DemonLeather>
+		<Cushion>
+			3 Cotton Cloth
+			6 Cotton Wool
+		</Cushion>
+		<ToyBambi>
+			10 Cotton
+			2 Beast Fur
+			5 Cotton Thread
+			2 Cypress Wood
+		</ToyBambi>
+		<DumplingDeco>
+			3 Cotton Cloth
+			4 Cotton Thread
+			4 Cotton Wool
+			2 Dye
+		</DumplingDeco>
+		<DragonBoatDeco>
+			5 Cotton Cloth
+			6 Cotton Thread
+			6 Cotton Wool
+			4 Dye
+		</DragonBoatDeco>		
+	</Needle>
+
+	<GreatDriver>
+		<Arquebus>
+			1 Trigger
+			1 Wooden Handle
+			1 Rammer
+			2 Black Bomb
+		</Arquebus>
+		<GreatGun>
+			1 Arquebus
+			1 Front Sight
+		</GreatGun>
+		<LongArquebus>
+			1 Trigger
+			1 Wooden Handle
+			1 Rammer
+			4 Black Bomb
+		</LongArquebus>
+		<DragonGun>
+			1 Long Arquebus
+			1 Front Sight
+		</DragonGun>
+		<Rifle>
+			1 Trigger
+			1 Wooden Handle
+			1 Front Sight
+			1 Rammer
+			1 Barrel
+		</Rifle>
+		<AssaultRifle>
+			1 Rifle
+			1 Precision Sight
+		</AssaultRifle>
+		<Bazooka>
+			1 Trigger
+			1 Front Sight
+			1 Rammer
+			5 Iron Material
+		</Bazooka>
+		<GreatBazooka>
+			1 Bazooka
+			1 Precision Sight
+		</GreatBazooka>
+		<Compass>
+			1 Hard Aluminium Plate
+			1 Magnetic Powder
+			1 Rubber
+			1 Wire
+		</Compass>
+		<LinkGearUnit>
+			2 Big Wooden Gear
+			6 Medium Wooden Gear
+			4 Small Wooden Gear
+			1 Metal Gear
+			2 Lubricant
+		</LinkGearUnit>
+		<Shelf>
+			4 Hard Aluminium Plate
+			4 Iron Shell
+		</Shelf>
+		<Telescope>
+			2 Hard Aluminium Plate
+			3 Glass
+			3 Iron Fillet
+			2 Metal Gear
+		</Telescope>
+		<Globe>
+			2 Small Wooden Gear
+			4 Plastic
+			20 Paper
+			10 Clay
+			1 Satellite Antenna
+		</Globe>
+		<ModularStereo>
+			1 Loop Antena
+			1 Filtering Circuit
+			1 Precision Circuit
+			3 Oak Wood
+			2 Sealed Potion
+		</ModularStereo>
+	</GreatDriver>
+
+	<BrandIron>
+		<SophisticatedDevice>
+			4 Copper
+			4 Special Nail
+			4 Wires
+			1 Electronic Wire
+		</SophisticatedDevice>
+		<Rectifier>
+			1 Rectifier Line
+			1 Filtering Circuit
+		</Rectifier>
+		<Transformer>
+			1 Transformer Winding
+			5 Hard Aluminium Plate
+			3 Original Rubber
+		</Transformer>
+		<ACGenerator>
+			3 Winding
+			2 Wires
+			1 Iron Fillet			
+		</ACGenerator>
+		<PrecisionCircuit>
+			2 Electronic Crystal
+			4 Resistance
+			3 Capacitance
+			1 Winding
+		</PrecisionCircuit>
+		<SmallGenerators>
+			2 Transformer Winding
+			5 Wires
+			4 Capacitance
+			3 Hard Aluminium Plate
+		</SmallGenerators>
+		<SmallEngine>
+			1 Ceramic Cylinder
+			3 Iron Material
+			1 Lubricant
+		</SmallEngine>
+		<DCGenerator>
+			1 Small Engine
+			6 Wires
+			1 Rectifier
+		</DCGenerator>
+		<FilteringCircuit>
+			4 Capacitance
+			4 Wires
+			5 Resistance
+		</FilteringCircuit>
+		<WeldingTool>
+			2 Iron Shell
+			1 Transformer
+			1 Sophisticated Device
+		</WeldingTool>
+		<FloorLamp>
+			3 Steel
+			2 Iron Fillet
+			2 Paper
+			5 Resin
+			1 Lamp
+		</FloorLamp>
+		<DesktopComputer>
+			2 Glass
+			2 Transformer
+			4 Electronic Wiring
+			5 Plastic
+			3 Precision Circuit
+		</DesktopComputer>
+		<TV>
+			4 Glass
+			2 Transformer
+			6 Enamel Wire
+			3 Precision Circuit
+			8 Capacitance
+		</TV>
+		<Transciever>
+			1 Quartz
+			2 Clay
+			2 Filtering Circuit
+			3 Capacitance
+			1 Sophisticated Device
+		</Transciever>
+		<GameMachine>
+			1 Electronic Wire
+			5 Wires
+			3 Precision Circuit
+			2 Plastic
+			1 Rubber
+		</GameMachine>
+		<WhiteDeskLamp>
+			2 Steel
+			1 Iron Fillet
+			2 Paper
+			2 Resin
+			1 Lamp
+		</WhiteDeskLamp>
+		<WireGameMachine>
+			8 Wires
+			4 Precision Circuit
+			3 Plastic
+			2 Electronic Crystal
+		</WireGameMachine>
+		<ClassicLightWest>
+			5 Iron Fillet
+			4 Glass
+			4 Nail
+			1 Lamp
+		</ClassicLightWest>
+		<RoseLoveWreath>
+			10 Rose
+			2 Wire
+			2 Paper
+		</RoseLoveWreath>
+		<RoseLoveWreath>
+			10 Rose
+			2 Wire
+		</RoseLoveWreath>		
+	</BrandIron>
+	
+</WorkPlatform>
+ 
+
+<CoconutBasin>
+
+	<Default>
+		<LoveChocolate>
+			6 Cocoa Nib
+			6 Apple
+		</LoveChocolate>
+		<LovelyChocolate>
+			4 Cocoa Nib
+			4 Cantaloupe
+		</LovelyChocolate>
+		<FavorChocolate>
+			2 Cocoa Nib
+		</FavorChocolate>
+		<DotingChocolate>
+			10 Cocoa Nib
+			1 Soft Sweet
+		</DotingChocolate>
+		<PassionChocolate>
+			6 Cocoa Nib
+			6 Apple
+		</PassionChocolate>
+		<SweetChocolate>
+			4 Cacao Bean
+			4 Cantaloupe
+		</SweetChocolate>
+		<ParfumeChocolate>
+			2 Cacao Bean
+		</ParfumeChocolate>
+		<PreciousChocolate>
+			10 Cacao Bean
+			1 Love Candy
+		</PreciousChocolate>
+		<StrangeEyeDrops>
+			1 Lucid Glue
+			1 Dye
+			2 Gold Tear
+		</StrangeEyeDrops>
+		<HairDye>
+			4 Dye
+		</HairDye>
+		<ColorMask>
+			1 White Clay
+			1 Dye
+			1 Lemon
+		</ColorMask>
+		<ShapeClay>
+			4 Tent Palette
+			2 Red Clay
+			2 White Clay
+			2 Yellow Clay
+		</ShapeClay>	
+		<ClothesDye>
+			1 Lucid Glue
+			1 Dye
+			2 Pure Drops
+		</ClothesDye>
+		<LowTemperatureKiln>
+			4 White Clay
+			5 Firewood
+		</LowTemperatureKiln>
+		<Turf>
+			12 Dry Clay
+			30 Common Grass
+			10 Common Stone
+			6 Pure Water
+		</Turf>
+		<Parterre>
+			1 Turf
+			4 Pure Water
+			8 Rose
+			12 Dry Clay
+		</Parterre>			
+	</Default>
+	
+</CoconutBasin>
+
+
+
+<LowTemperatureKiln>
+	<Default>
+		<WaterPipe>
+			1 Acrylic Plate
+		</WaterPipe>
+		<RectifierLine>
+			1 Copper
+			1 Wires
+			2 Original Rubber
+			1 Firewood
+		</RectifierLine>
+		<CoalBlock>
+			8 Coal
+			4 Tar
+		</CoalBlock>
+		<Charcoal>
+			1 Firewood
+		</Charcoal>
+		<Brick>
+			1 Clay
+			2 Firewood
+		</Brick>
+		<Rubber>
+			2 Original Rubber
+		</Rubber>
+		<Wires>
+			2 Copper
+			2 Original Rubber
+			2 Firewood
+		</Wires>
+		<DemonFur>
+			3 White Fox Fur
+			6 Funny Feather
+			8 Sheepskin
+			5 Beast Fur 	
+		</DemonFur>
+		<MeltingFurnace>
+			4 Black Clay
+			2 Yellow Clay
+			1 Iron Ore
+			5 Firewood
+		</MeltingFurnace>
+		<Whetstone>
+			2 Grey Clay
+			2 Firewood
+		</Whetstone>
+		<KitchenRange>
+			4 Dry Clay
+			8 Brick
+			5 Firewood
+		</KitchenRange>
+		<SmokeTool>
+			2 Black Clay
+			4 Brick
+			2 Firewood
+		</SmokeTool>
+		<Kerosene>
+			4 Coal Ball
+			1 Oil
+		</Kerosene>
+	</Default>
+</LowTemperatureKiln>
+
+
+
+<MeltingFurnace>
+	<MetalGear>
+		1 Steel
+		3 Firewood
+	</MetalGear>
+	<RoundSaw>
+		1 Iron Material
+		2 Firewood
+	</RoundSaw>
+	<Cable>
+		2 Iron Ore
+		3 Firewood
+		3 Rubber
+	</Cable>
+	<SpecialNail ammount="6">
+		1 Iron Material
+		2 Firewood
+	</SpecialNail>
+	<Nail ammount="6">
+		1 Iron Material
+		1 Firewood
+	</Nail>
+	<EnamelWire>
+		1 Copper Ore
+		2 Rubber
+		2 Firewood
+	</EnamelWire>
+	<Wire>
+		1 Iron Ore
+		1 Firewood
+	</Wire>
+	<Copper>
+		2 Copper Sand
+		1 Firewood
+	</Copper>
+	<TitaniumAlloy>
+		5 Charcoal
+		2 Sulfur
+		3 Steel
+		2 Cold Sand
+		1 White Silvery
+	</TitaniumAlloy>
+	<Lamp>
+		1 Glass
+		2 Filament
+		3 Wire
+	</Lamp>
+	<LandingPlate>
+		4 Steel
+		1 Link Gear Unit
+	</LandingPlate>
+	<HydrogenGenerator>
+		3 Vitriol
+		3 Copper Sand
+		2 Iron Material
+		2 Firewood
+	</HydrogenGenerator>
+	<IronShell>
+		2 Iron Material
+	</IronShell>
+	<Alloy>
+		1 Steel
+		1 Copper Plate
+		1 Aluminium Plate
+	</Alloy>
+	<HotKiln>
+		5 Yellow Clay
+		6 Grey Clay
+		4 Firewood
+	</HotKiln>
+	<TrainingPlatform>
+		2 Black Clay
+		2 Iron Material
+		6 Firewood
+	</TrainingPlatform>
+	<CopperSand>
+		1 Copper Ore
+		2 Firewood
+	</CopperSand>
+	<CopperBlock>
+		3 Copper Ore
+		4 Firewood
+	</CopperBlock>
+	<CopperMaterial>
+		2 CopperBlock
+		4 Firewood
+	</CopperMaterial>
+	<IronBlock>
+		3 Iron ore
+		3 Firewood
+	</IronBlock>
+	<IronFillet>
+		2 Iron Ore
+		3 Firewood
+	</IronFillet>
+	<IronMaterial>
+		2 Iron Ore
+		3 Firewood
+	</IronMaterial>
+	<TinBlock>
+		3 Tin Ore
+		4 Firewood
+	</TinBlock>
+	<TinMaterial>
+		2 Tin Block
+		3 Firewood
+	</TinMaterial>
+	<GalenaBlock>
+		2 Galena
+		2 Firewood
+	</GalenaBlock>
+	<LeadPlate>
+		1 GalenaBlock
+		3 Firewood
+	</LeadPlate>
+	<AluminiumBlock>
+		3 Aluminium Ore
+		4 Firewood
+	</AluminiumBlock>
+</MeltingFurnace>
+
+
+<Centrifuge>
+	<Lubricant>
+		1 Heavy Oil
+		5 Firewood
+	</Lubricant>
+	<Sugar>
+		3 Fruit Pollen
+		2 Fruit Nectar
+	</Sugar>
+	<CoconutOil>
+		2 Coconut
+	</CoconutOil>	
+</Centrifuge>
+
+
+
+
+
+
+
+
+
+
+</Crafting>
+
+
+
+
+
+
+
+
+
+
+
