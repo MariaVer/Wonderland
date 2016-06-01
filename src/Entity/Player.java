@@ -15,7 +15,7 @@ public class Player {
 		AnimationsColection col=new AnimationsColection();
 		col.initFrames("/characters/1015/");
 		standing.initAnimations(col);
-		standing.setDelay(250);
+		standing.setDelay(200);
 		//standing.setAnimType(Direction.StSS);
 	}
 	

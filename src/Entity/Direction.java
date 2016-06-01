@@ -2,7 +2,7 @@ package Entity;
 
 public enum Direction {
 
-	StNN,StNE,StEE,StES,StSS,StSW,StWW,StWN,WaNN,WaNE,WaEE,WaES,WaSS,WaSW,WaWW,WaWN,Sleep
+	StNN,StNW,StWW,StWS,StSS,StSE,StEE,StEN,WaNN,WaNW,WaWW,WaWS,WaSS,WaSE,WaEE,WaEN,Sleep
 	
 	
 }
