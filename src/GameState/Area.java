@@ -14,7 +14,7 @@ public class Area {
 		
 		if(index==0)
 		{
-			this.bg=new Background("/backgrounds/Area1.png");
+			this.bg=new Background("/maps/60000.png");
 		
 		}
 		this.player=new Player();

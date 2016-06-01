@@ -52,8 +52,8 @@ public class Background
 	public void draw(Graphics2D g)
 	{
 		//one tile is 32px
-		subimage=image.getSubimage(0, 0, 256, 256);
-		g.drawImage(subimage,0,0, 512, 512, null);
+		subimage=image.getSubimage(900, 1000, 500, 500 );
+		g.drawImage(subimage,0,0, null);
 		
 		
 	}

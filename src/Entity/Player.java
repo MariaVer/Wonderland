@@ -12,24 +12,11 @@ public class Player {
 	
 	public Player()
 	{
-		try {
-			BufferedImage sprites,subimage;		
-			sprites = ImageIO.read(getClass().getResourceAsStream("/Pokemon/Espeon.png"));
-			
-			standing2=new BufferedImage[3];
-			for(int i=0;i<=2;i++)
-			{
-				subimage=sprites.getSubimage( 80+i*40,0, 40, 40);
-				standing2[i]=subimage;
-				
-			}
-			
-			standing.setDelay(200);
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		AnimationsColection col=new AnimationsColection();
+		col.initFrames("/characters/1015/");
+		standing.initAnimations(col);
+		standing.setDelay(250);
+		//standing.setAnimType(Direction.StSS);
 	}
 	
 	public void update()
@@ -41,7 +28,7 @@ public class Player {
 	{
 		
 		BufferedImage image=standing.getImage();
-		g.drawImage(image,200,290,60,60,null);
+		g.drawImage(image,200,290,null);
 	}
 	
 	
