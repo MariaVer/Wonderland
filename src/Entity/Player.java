@@ -23,7 +23,7 @@ public class Player {
 				standing2[i]=subimage;
 				
 			}
-			standing.setFrames(standing2,1);
+			
 			standing.setDelay(200);
 			
 		} catch (IOException e) {

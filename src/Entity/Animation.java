@@ -4,25 +4,23 @@ import java.awt.image.BufferedImage;
 
 public class Animation 
 {
-	private static AnimationsColection[] colection;
-	//private AnimationsColection colection=new AnimationsColection();
+	private BufferedImage[] frames;
 	private int currentFrame=0;
 	
 	private long startTime;
 	private long delay;
-	private BufferedImage[] frames;
 	
 	private boolean playedOnce;
 	
-	public Animation()
+	public void Animation()
 	{
 		playedOnce=false;
 		
 	}
 	
-	public void setFrames(String s,int index)
+	public void setFrames(BufferedImage[] frames)
 	{
-		this.frames=colection[index].getAnim(s);
+		this.frames=frames;
 		currentFrame=0;
 		startTime=System.nanoTime();
 		playedOnce=false;
