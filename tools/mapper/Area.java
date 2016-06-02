@@ -20,14 +20,24 @@ public class Area {
 	private Background bg;
 	private int index;
 	private Player player;
-	private Boolean[][] map;
-	public int tilesize=45;
-	public int maxX=96,maxY=78;
+	public Boolean[][] map;
+	public int tilesize=15;
+	public int maxX=288,maxY=234;
+	public int middlex=43,middley=30;
+	public int maxscreenposx=87,maxscreenposy=60;
 	
 	public Area(int index)
 	{
+		this.index=index;
+		
+		if(index==0)
+		{
+			this.bg=new Background("/maps/60000",4320,3510,15);		
+		}
+		
+		
 		try {
-			File f = new File("resources/maps/60000.dat");
+			File f = new File("resources"+bg.source+".dat");
 			if(!f.exists()) { 
 				map=new Boolean[maxX][maxY];
 				for(int i=0;i<maxX;i++)
@@ -40,7 +50,7 @@ public class Area {
 				}
 				saveMap();
 			}else{
-			FileInputStream fi=new FileInputStream("resources/maps/60000.dat");
+			FileInputStream fi=new FileInputStream("resources"+bg.source+".dat");
 			ObjectInputStream ois;		
 			ois = new ObjectInputStream(fi);
 			map=(Boolean[][])ois.readObject();
@@ -52,14 +62,8 @@ public class Area {
 		}
 		
 		
-		this.index=index;
 		
-		if(index==0)
-		{
-			this.bg=new Background("/maps/60000.png");
-		
-		}
-		this.player=new Player();
+		this.player=new Player(tilesize);
 	}
 	
 	public void changeMap(boolean stuff,int x,int y)
@@ -114,18 +118,22 @@ public class Area {
 		int alpha = 127; // 50% transparent
 		Color myColour = new Color(0, 148, 71, alpha);
 		g.setColor(myColour);
-		for(int i=0;i<30;i++)
+		for(int i=0;i<maxscreenposx;i++)
 		{
-			for(int j=0;j<20;j++)
+			for(int j=0;j<maxscreenposy;j++)
 			{
 				int reali=Player.getPlayerX()-Player.getScreenPosX()+i;
 				int realj=Player.getPlayerY()-Player.getScreenPosY()+j;
-				if (map[reali][realj])
+				if(reali<map.length&&realj<map[1].length)
 				{
-					 g.setColor(myColour);
-			         g.fillRect(i*tilesize, j*tilesize, tilesize, tilesize);
-				}
 				
+					if (map[reali][realj])
+					{
+						 g.setColor(myColour);
+				         g.fillRect(i*tilesize, j*tilesize, tilesize, tilesize);
+					}
+				
+				}
 			}
 			
 		}

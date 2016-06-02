@@ -14,10 +14,10 @@ public class Area {
 		
 		if(index==0)
 		{
-			this.bg=new Background("/maps/60000.png");
+			this.bg=new Background("/maps/60000",4320,3510,45);	
 		
 		}
-		this.player=new Player();
+		this.player=new Player(45);
 	}
 	
 	

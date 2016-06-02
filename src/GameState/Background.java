@@ -18,14 +18,20 @@ public class Background
 	private double dx;
 	private double dy;
 	private int posy,posx;
-	
+	public int width,height;
+	public String source;
+	public int tilesize;
 	private double moveScale;
 	
-	public Background(String s)
+	public Background(String s,int width,int height,int tilesize)
 	{
+		this.height=height;
+		this.width=width;
+		this.tilesize=tilesize;
+		source=s;
 		try
 		{	
-			image = ImageIO.read(getClass().getResourceAsStream(s));
+			image = ImageIO.read(getClass().getResourceAsStream(s+".png"));
 			
 		}
 		catch(Exception e)
@@ -48,24 +54,21 @@ public class Background
 	
 	public void update()
 	{
-		posx=Player.getPlayerX()*45-15*45;
-		posy=Player.getPlayerY()*45-10*45;
-		if(posx<0) posx=0;
-		if(posy<0) posy=0;
+		
 	}
 	
 	public void draw(Graphics2D g)
 	{
 		//4320 3510
 		//96 78
-		//one tile is 45px
-		posx=Player.getPlayerX()*45-Player.getScreenPosX()*45;
-		posy=Player.getPlayerY()*45-Player.getScreenPosY()*45;
+		//one tile is tilesizepx
+		posx=Player.getPlayerX()*tilesize-Player.getScreenPosX()*tilesize;
+		posy=Player.getPlayerY()*tilesize-Player.getScreenPosY()*tilesize;
 		if(posx<0) posx=0;
 		if(posy<0) posy=0;
 		
-		if(posx>4320-1305)posx=4320-1305;
-		if(posy>3510-900)posy=3510-900;
+		if(posx>width-1305)posx=width-1305;
+		if(posy>height-900)posy=height-900;
 		subimage=image.getSubimage(posx, posy, 1305, 900 );
 		g.drawImage(subimage,0,0, null);
 		

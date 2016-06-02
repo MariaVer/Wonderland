@@ -14,6 +14,8 @@ public class GameStateManager
 	public ArrayList<Area> world=new ArrayList<Area>();
 	public int CurrentAreaIndex=0;
 	public static Animation anim=new Animation();
+	private boolean bigBrush=false;
+	
 	
 	public GameStateManager()
 	{
@@ -22,6 +24,7 @@ public class GameStateManager
 			Area ar=new Area(i);
 			world.add(ar);
 		}
+		
 	}
 		
 	public void init()
@@ -45,7 +48,10 @@ public class GameStateManager
 		{
 			world.get(CurrentAreaIndex).saveMap();
 		}
-		
+		if(k==KeyEvent.VK_CONTROL)
+		{
+			bigBrush=!bigBrush;
+		}
 	}
 	
 	public void keyReleased(int k)
@@ -68,16 +74,20 @@ public class GameStateManager
 	public void mousePressed(MouseEvent e) {
 		if (e.getButton() == MouseEvent.BUTTON1)
 		{
-			int x=(int)e.getPoint().getX()/45+1;
-			int y=(int)e.getPoint().getY()/45+1;
+			int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize+1;
+			int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize+1;
 			
 			int newx=Player.getPlayerX()-Player.getScreenPosX()+x;
 			int newy=Player.getPlayerY()-Player.getScreenPosY()+y;
-			if(newx<15) Player.updateScreenPosX(newx); 
-			else if(newx>96-15) Player.updateScreenPosX(30-(96-newx)); else Player.updateScreenPosX(15);
+			if(newx<world.get(CurrentAreaIndex).middlex) Player.updateScreenPosX(newx); 
+			else if(newx>world.get(CurrentAreaIndex).map.length-world.get(CurrentAreaIndex).middlex) 
+				Player.updateScreenPosX(world.get(CurrentAreaIndex).maxscreenposx-(world.get(CurrentAreaIndex).maxX-newx));
+					else Player.updateScreenPosX(world.get(CurrentAreaIndex).middlex);
 			
-			if(newy<10) Player.updateScreenPosY(newy); 
-			else if(newy>78-10) Player.updateScreenPosY(20-(78-newy)); else Player.updateScreenPosY(10);
+			if(newy<world.get(CurrentAreaIndex).middley) Player.updateScreenPosY(newy); 
+			else if(newy>world.get(CurrentAreaIndex).map[1].length-world.get(CurrentAreaIndex).middley) 
+				Player.updateScreenPosY(world.get(CurrentAreaIndex).maxscreenposy-(world.get(CurrentAreaIndex).maxY-newy));
+					else Player.updateScreenPosY(world.get(CurrentAreaIndex).middley);
  			
 			
 			Player.updatePlayerX(newx);
@@ -85,18 +95,33 @@ public class GameStateManager
 		}
 		if (e.getButton() == MouseEvent.BUTTON3) 
 		{
-			int x=(int)e.getPoint().getX()/45+1;
-			int y=(int)e.getPoint().getY()/45+1;
+			int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize+1;
+			int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize+1;
 			
 			int newx=Player.getPlayerX()-Player.getScreenPosX()+x;
 			int newy=Player.getPlayerY()-Player.getScreenPosY()+y;
-			world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1);
+			if(!bigBrush){
+				world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1);
+			}else{
+				world.get(CurrentAreaIndex).changeMap(true, newx-1-1, newy-1-1);
+				world.get(CurrentAreaIndex).changeMap(true, newx-1-1, newy-1);
+				world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1-1);
+				
+				world.get(CurrentAreaIndex).changeMap(true, newx-1+1, newy-1+1);
+				world.get(CurrentAreaIndex).changeMap(true, newx-1+1, newy-1);
+				world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1+1);
+				
+				world.get(CurrentAreaIndex).changeMap(true, newx-1+1, newy-1-1);
+				world.get(CurrentAreaIndex).changeMap(true, newx-1-1, newy-1+1);
+				world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1);
+				
+			}
 			
 		}
 		if (e.getButton() == MouseEvent.BUTTON2)
 		{
-			int x=(int)e.getPoint().getX()/45+1;
-			int y=(int)e.getPoint().getY()/45+1;
+			int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize+1;
+			int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize+1;
 			
 			int newx=Player.getPlayerX()-Player.getScreenPosX()+x;
 			int newy=Player.getPlayerY()-Player.getScreenPosY()+y;

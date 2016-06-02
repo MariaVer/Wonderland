@@ -12,13 +12,15 @@ public class Player {
 	private BufferedImage[] standing2;
 	private static int playerx,playery;
 	private static int screenPosx,screenPosy;
+	private int tilesize;
 	
-	public Player()
+	public Player(int tilesize)
 	{
-		playerx=15;
-		screenPosx=15;
-		playery=10;
-		screenPosy=10;
+		this.tilesize=tilesize;
+		playerx=43;
+		screenPosx=43;
+		playery=30;
+		screenPosy=30;
 		AnimationsColection col=new AnimationsColection();
 		col.initFrames("/characters/1015/");
 		standing.initAnimations(col);
@@ -45,7 +47,7 @@ public class Player {
 	{
 		
 		BufferedImage image=standing.getImage();
-		g.drawImage(image,screenPosx*45-85,screenPosy*45-110,null);
+		g.drawImage(image,screenPosx*tilesize-70,screenPosy*tilesize-110,null);
 		
 		
 	}
