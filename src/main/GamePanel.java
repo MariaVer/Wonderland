@@ -9,8 +9,8 @@ import GameState.GameStateManager;
 public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListener,MouseMotionListener
 {
 	//dimensions
-	public static final int WIDTH = 500;
-	public static final int HEIGHT = 500;
+	public static final int WIDTH = 1305;
+	public static final int HEIGHT = 900;
 	public static final int SCALE = 1;	
 	
 	//game thread

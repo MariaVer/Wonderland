@@ -2,7 +2,11 @@ package mapper;
 
 import javax.swing.JFrame;
 
-
+//hitting enter saves the map
+//		  control changes to big brush or back to normal
+//		  left click moves the character
+//	      right click to mark squares
+//        middle click to clear marked squares
 
 
 public class Main {

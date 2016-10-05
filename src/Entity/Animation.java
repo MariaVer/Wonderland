@@ -22,7 +22,7 @@ public class Animation
 	public void initAnimations(AnimationsColection frames)
 	{
 		this.frames=frames;
-		this.currentFrames=frames.getAnim(Direction.WaSS);
+		this.currentFrames=frames.getAnim(Direction.StSS);
 		currentFrame=0;
 		startTime=System.nanoTime();
 		playedOnce=false;

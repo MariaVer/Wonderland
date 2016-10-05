@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import Entity.Animation;
+import Entity.Player;
 
 
 
@@ -61,7 +62,31 @@ public class GameStateManager
 	}
 
 	public void mousePressed(MouseEvent e) {
-		
+		if (e.getButton() == MouseEvent.BUTTON1)
+		{
+			int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize+1;
+			int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize+1;
+			int newx=Player.getPlayerX()-Player.getScreenPosX()+x;
+			int newy=Player.getPlayerY()-Player.getScreenPosY()+y;
+			boolean goodPos=world.get(CurrentAreaIndex).getMap()[newx][newy];
+			if(goodPos)
+			{			
+				
+				if(newx<world.get(CurrentAreaIndex).middlex) Player.updateScreenPosX(newx); 
+				else if(newx>world.get(CurrentAreaIndex).map.length-world.get(CurrentAreaIndex).middlex) 
+					Player.updateScreenPosX(world.get(CurrentAreaIndex).maxscreenposx-(world.get(CurrentAreaIndex).maxX-newx));
+						else Player.updateScreenPosX(world.get(CurrentAreaIndex).middlex);
+				
+				if(newy<world.get(CurrentAreaIndex).middley) Player.updateScreenPosY(newy); 
+				else if(newy>world.get(CurrentAreaIndex).map[1].length-world.get(CurrentAreaIndex).middley) 
+					Player.updateScreenPosY(world.get(CurrentAreaIndex).maxscreenposy-(world.get(CurrentAreaIndex).maxY-newy));
+						else Player.updateScreenPosY(world.get(CurrentAreaIndex).middley);
+	 			
+				
+				Player.updatePlayerX(newx);
+				Player.updatePlayerY(newy);
+			}
+		}
 	}
 
 	public void mouseReleased(MouseEvent e) {
