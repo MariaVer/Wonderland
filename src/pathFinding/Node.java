@@ -2,11 +2,11 @@ package pathFinding;
 
 public class Node  {
 	int x,y;
-	int g,h;
+	double g,h;
 	Node parent;
 	Boolean isExplored=false,isInFrontier=false;
 	
-	public Node(int x,int y,int g, int h,Node parent)
+	public Node(int x,int y,double g, double h,Node parent)
 	{
 		this.x=x;
 		this.y=y;
@@ -24,6 +24,6 @@ public class Node  {
 	
 	public String toString()
 	{
-		return "x= "+x+" y= "+y +" Parent: "+parent;
+		return "x= "+x+" y= "+y +" Parent: "+g;
 	}
 }

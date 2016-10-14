@@ -30,19 +30,20 @@ public class PathFinding {
 	}
 		
 	
-	public int heuristic(int sx,int sy,int tx,int ty)
+	public double heuristic(int sx,int sy,int tx,int ty)
 	{
 		int dx=sx-tx;
 		int dy=sy-ty;
 		//return Math.abs(dx)+Math.abs(dy);
-		return (int)Math.sqrt(dx*dx+dy*dy);
+		return Math.sqrt(dx*dx+dy*dy);
+		//return 0;
 	}
 	
 	public void addToFrontier(Node n)
 	{
-		//System.out.println("added to frontier  "+n);
+		//System.out.println(Frontier);
 		nodes[n.x][n.y]=n;
-		int f=n.g+n.h;
+		double f=n.g+n.h;
 		for(int i=0;i<Frontier.size();i++)
 		{
 			if(f<Frontier.get(i).g+Frontier.get(i).h)
@@ -52,7 +53,6 @@ public class PathFinding {
 			}
 		}
 		Frontier.add(n);
-		//System.out.println(Frontier);
 	}
 	
 	public ArrayList<Point> findPath(int sx, int sy, int tx, int ty)
@@ -71,8 +71,9 @@ public class PathFinding {
 				{
 					int nx=current.x+i;
 					int ny=current.y+j;
-					
-					Node neighbour=new Node(nx,ny,current.g+1,heuristic(nx,ny,tx,ty),current);
+					Node neighbour;
+					if((i==1||i==-1)&&(j==1||j==-1)) neighbour=new Node(nx,ny,current.g+1.41,heuristic(nx,ny,tx,ty),current);
+					else neighbour=new Node(nx,ny,current.g+1,heuristic(nx,ny,tx,ty),current);
 					if(map[neighbour.x][neighbour.y])
 					{
 						if(nodes[nx][ny]==null)addToFrontier(neighbour);
@@ -80,7 +81,8 @@ public class PathFinding {
 							if(!nodes[nx][ny].isExplored&&!nodes[nx][ny].isInFrontier) addToFrontier(neighbour);
 							else if (neighbour.g<nodes[nx][ny].g){
 								nodes[nx][ny].g=neighbour.g;
-								nodes[nx][ny].parent=current;							
+								nodes[nx][ny].parent=current;	
+								
 							}
 					}
 				}

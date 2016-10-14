@@ -123,6 +123,7 @@ public class Area {
 		if(pathtodraw)
 		{
 			//draw grid
+			/*
 			for(int i=0;i<maxX;i++)
 			{
 				g.draw(new Line2D.Double(0, i*tilesize, 3510, i*tilesize));
@@ -131,7 +132,7 @@ public class Area {
 			{
 				g.draw(new Line2D.Double(j*tilesize, 0, j*tilesize, 4320));
 			}
-			
+			*/
 			
 			
 			int alpha = 127; // 50% transparent
