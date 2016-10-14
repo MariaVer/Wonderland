@@ -47,7 +47,7 @@ public class Player {
 	{
 		
 		BufferedImage image=standing.getImage();
-		g.drawImage(image,screenPosx*tilesize-70,screenPosy*tilesize-110,null);
+		g.drawImage(image,screenPosx*tilesize-70+15,screenPosy*tilesize-110+15,null);
 		
 		
 	}

@@ -1,10 +1,12 @@
 package GameState;
 
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import Entity.Animation;
 import Entity.Player;
+import pathFinding.PathFinding;
 
 
 
@@ -64,13 +66,19 @@ public class GameStateManager
 	public void mousePressed(MouseEvent e) {
 		if (e.getButton() == MouseEvent.BUTTON1)
 		{
-			int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize+1;
-			int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize+1;
+			int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize;
+			int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize;
 			int newx=Player.getPlayerX()-Player.getScreenPosX()+x;
 			int newy=Player.getPlayerY()-Player.getScreenPosY()+y;
+			//newx and newy are the map coordinates where the player needs to move
 			boolean goodPos=world.get(CurrentAreaIndex).getMap()[newx][newy];
 			if(goodPos)
 			{			
+				
+				PathFinding pather=new PathFinding(world.get(CurrentAreaIndex).getMap());
+				ArrayList<Point> path = pather.findPath(Player.getPlayerX(),Player.getPlayerY(),newx,newy);
+				//System.out.println(path);
+				world.get(CurrentAreaIndex).drawPath(path);
 				
 				if(newx<world.get(CurrentAreaIndex).middlex) Player.updateScreenPosX(newx); 
 				else if(newx>world.get(CurrentAreaIndex).map.length-world.get(CurrentAreaIndex).middlex) 

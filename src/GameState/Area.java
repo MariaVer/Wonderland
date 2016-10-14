@@ -1,6 +1,7 @@
 package GameState;
 
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.geom.Line2D;
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import Entity.Player;
 import GameState.Background;
@@ -44,7 +46,8 @@ public class Area {
 				{
 					for(int j=0;j<maxY;j++)
 					{
-						map[i][j]=false;						
+						map[i][j]=false;
+						
 					}
 					
 				}
@@ -55,6 +58,7 @@ public class Area {
 				ois = new ObjectInputStream(fi);
 				map=(Boolean[][])ois.readObject();
 				ois.close();
+				
 			}
 		} catch (IOException | ClassNotFoundException e) {
 			
@@ -101,6 +105,14 @@ public class Area {
 		player.update();
 	}
 	
+	private boolean pathtodraw=false;
+	private ArrayList<Point> path;
+	public void drawPath(ArrayList<Point> path)
+	{
+		pathtodraw=true;
+		this.path=path;
+	}
+	
 	public void draw(java.awt.Graphics2D g)
 	{
 		bg.draw(g);
@@ -108,40 +120,70 @@ public class Area {
 		g.setColor(Color.BLACK);
 		String s=Player.getPlayerX()+" "+Player.getPlayerY();
 		g.drawString(s, 50, 40);
-		/*
-		for(int i=0;i<maxX;i++)
+		if(pathtodraw)
 		{
-			g.draw(new Line2D.Double(0, i*tilesize, 3510, i*tilesize));
-		}
-		for(int j=0;j<maxY;j++)
-		{
-			g.draw(new Line2D.Double(j*tilesize, 0, j*tilesize, 4320));
-		}
-		
-		
-		
-		int alpha = 127; // 50% transparent
-		Color myColour = new Color(0, 148, 71, alpha);
-		g.setColor(myColour);
-		for(int i=0;i<maxscreenposx;i++)
-		{
-			for(int j=0;j<maxscreenposy;j++)
+			//draw grid
+			for(int i=0;i<maxX;i++)
 			{
-				int reali=Player.getPlayerX()-Player.getScreenPosX()+i;
-				int realj=Player.getPlayerY()-Player.getScreenPosY()+j;
-				if(reali<map.length&&realj<map[1].length)
-				{
-				
-					if (map[reali][realj])
-					{
-						 g.setColor(myColour);
-				         g.fillRect(i*tilesize, j*tilesize, tilesize, tilesize);
-					}
-				
-				}
+				g.draw(new Line2D.Double(0, i*tilesize, 3510, i*tilesize));
+			}
+			for(int j=0;j<maxY;j++)
+			{
+				g.draw(new Line2D.Double(j*tilesize, 0, j*tilesize, 4320));
 			}
 			
-		}*/
+			
+			
+			int alpha = 127; // 50% transparent
+			Color myColour = new Color(0, 148, 71, alpha);
+			g.setColor(myColour);
+			/*
+			for(int i=0;i<maxscreenposx;i++)
+			{
+				for(int j=0;j<maxscreenposy;j++)
+				{
+					int reali=Player.getPlayerX()-Player.getScreenPosX()+i;
+					int realj=Player.getPlayerY()-Player.getScreenPosY()+j;
+					if(reali<map.length&&realj<map[1].length)
+					{
+					
+						if (map[reali][realj])
+						{
+							 g.setColor(myColour);
+					         g.fillRect(i*tilesize, j*tilesize, tilesize, tilesize);
+						}
+					
+					}
+				}
+				
+			}*/
+			if(path!=null){
+			for(int y=0;y<path.size();y++)
+			{
+				int pointx=path.get(y).x;
+				int pointy=path.get(y).y;
+				for(int i=0;i<maxscreenposx;i++)
+				{
+					for(int j=0;j<maxscreenposy;j++)
+					{
+						int reali=Player.getPlayerX()-Player.getScreenPosX()+i;
+						int realj=Player.getPlayerY()-Player.getScreenPosY()+j;
+						if(reali<map.length&&realj<map[1].length)
+						{
+						
+							if (pointx==reali&&pointy==realj)
+							{
+								 g.setColor(myColour);
+						         g.fillRect(i*tilesize, j*tilesize, tilesize, tilesize);
+							}
+						
+						}
+					}
+					
+				}
+			}
+			}
+		}
 		
 	}
 
