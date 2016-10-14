@@ -71,19 +71,21 @@ public class PathFinding {
 				{
 					int nx=current.x+i;
 					int ny=current.y+j;
-					Node neighbour;
-					if((i==1||i==-1)&&(j==1||j==-1)) neighbour=new Node(nx,ny,current.g+1.41,heuristic(nx,ny,tx,ty),current);
-					else neighbour=new Node(nx,ny,current.g+1,heuristic(nx,ny,tx,ty),current);
-					if(map[neighbour.x][neighbour.y])
-					{
-						if(nodes[nx][ny]==null)addToFrontier(neighbour);
-						else
-							if(!nodes[nx][ny].isExplored&&!nodes[nx][ny].isInFrontier) addToFrontier(neighbour);
-							else if (neighbour.g<nodes[nx][ny].g){
-								nodes[nx][ny].g=neighbour.g;
-								nodes[nx][ny].parent=current;	
-								
-							}
+					if(nx<map.length&&ny<map[0].length){
+						Node neighbour;
+						if((i==1||i==-1)&&(j==1||j==-1)) neighbour=new Node(nx,ny,current.g+1.41,heuristic(nx,ny,tx,ty),current);
+						else neighbour=new Node(nx,ny,current.g+1,heuristic(nx,ny,tx,ty),current);
+						if(map[neighbour.x][neighbour.y])
+						{
+							if(nodes[nx][ny]==null)addToFrontier(neighbour);
+							else
+								if(!nodes[nx][ny].isExplored&&!nodes[nx][ny].isInFrontier) addToFrontier(neighbour);
+								else if (neighbour.g<nodes[nx][ny].g){
+									nodes[nx][ny].g=neighbour.g;
+									nodes[nx][ny].parent=current;	
+									
+								}
+						}
 					}
 				}
 

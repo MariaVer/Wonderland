@@ -64,6 +64,7 @@ public class Background
 		//one tile is tilesizepx
 		posx=Player.getPlayerX()*tilesize-Player.getScreenPosX()*tilesize;
 		posy=Player.getPlayerY()*tilesize-Player.getScreenPosY()*tilesize;
+		
 		if(posx<0) posx=0;
 		if(posy<0) posy=0;
 		

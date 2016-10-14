@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import Entity.Animation;
+import Entity.Direction;
 import Entity.Player;
 import pathFinding.PathFinding;
 
@@ -115,6 +116,75 @@ public class GameStateManager
 			                    try {
 			                        int newx=path.get(i).x;
 			                        int newy=path.get(i).y;
+			                        int dx=Player.getPlayerX()-newx;
+			                        int dy=Player.getPlayerY()-newy;
+			                        //System.out.println("dx: "+dx+"  dy: "+dy);
+			                        switch(dx){
+			                        case -1:
+			                        	switch(dy){
+				                        case -1:
+				                        	Player.setAnimType(Direction.WaSE);	
+				                        	break;
+				                        	
+				                        case 0:
+				                        	Player.setAnimType(Direction.WaEE);	
+				                        	break;
+				                        	
+				                        case 1:
+				                        	Player.setAnimType(Direction.WaEN);	
+				                        	break;
+				                        	
+				                        default:
+				                        	//Player.setAnimType(Direction.StSS);	
+				                        	break;
+				                        }
+			                        	break;
+			                        	
+			                        case 0:
+			                        	switch(dy){
+				                        case -1:
+				                        	Player.setAnimType(Direction.WaSS);	
+				                        	break;
+				                        	
+				                        case 0:
+				                        	Player.setAnimType(Direction.StSS);	
+				                        	break;
+				                        	
+				                        case 1:
+				                        	Player.setAnimType(Direction.WaNN);	
+				                        	break;
+				                        	
+				                        default:
+				                        	//Player.setAnimType(Direction.StSS);	
+				                        	break;
+				                        }
+			                        	break;
+			                        	
+			                        case 1:
+			                        	switch(dy){
+				                        case -1:
+				                        	Player.setAnimType(Direction.WaWS);
+				                        	break;
+				                        	
+				                        case 0:
+				                        	Player.setAnimType(Direction.WaWW);
+				                        	break;
+				                        	
+				                        case 1:
+				                        	Player.setAnimType(Direction.WaNW);
+				                        	break;
+				                        	
+				                        default:
+				                        	//Player.setAnimType(Direction.StSS);	
+				                        	break;
+				                        }
+			                        	break;
+			                        	
+			                        default:
+			                        	//Player.setAnimType(Direction.StSS);	
+			                        	break;
+			                        }
+			                        
 			                        if(newx<world.get(CurrentAreaIndex).middlex) Player.updateScreenPosX(newx); 
 			        				else if(newx>world.get(CurrentAreaIndex).map.length-world.get(CurrentAreaIndex).middlex) 
 			        					Player.updateScreenPosX(world.get(CurrentAreaIndex).maxscreenposx-(world.get(CurrentAreaIndex).maxX-newx));
@@ -132,6 +202,46 @@ public class GameStateManager
 			                    } catch (Exception e) {
 			                        e.printStackTrace();
 			                    }
+			                }
+			                //reached destination
+			                switch(Player.animType){
+			                case WaNN:
+			                	Player.setAnimType(Direction.StNN);
+			                	break;
+			                	
+			                case WaNW:
+			                	Player.setAnimType(Direction.StNW);
+			                	break;
+			                
+			                case WaWW:
+			                	Player.setAnimType(Direction.StWW);
+			                	break;
+			                	
+			                case WaWS:
+			                	Player.setAnimType(Direction.StWS);
+			                	break;
+			                	
+			                case WaSS:
+			                	Player.setAnimType(Direction.StSS);
+			                	break;
+			                	
+			                case WaSE:
+			                	Player.setAnimType(Direction.StSE);
+			                	break;
+			                	
+			                case WaEE:
+			                	Player.setAnimType(Direction.StEE);
+			                	break;
+			                	
+			                case WaEN:
+			                	Player.setAnimType(Direction.StEN);
+			                	break;
+			                	
+			                default:
+			                	//Player.setAnimType(Direction.StSS);
+			                		
+			                
+			                
 			                }
 		            	}
 		            }
