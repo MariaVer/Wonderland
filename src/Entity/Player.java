@@ -50,7 +50,11 @@ public class Player {
 	public static int getPlayerX(){return playerx;}
 	public static int getPlayerY(){return playery;}
 	
-	
+	public static void updateScreenPos(int newx,int newy)
+	{
+		
+	}
+	/*
 	public static void updateScreenPosX(int newx){ 
 		screenPosx=newx;
 //		Thread th = new Thread() {
@@ -97,6 +101,7 @@ public class Player {
 //		};
 //		th.start();
 	}
+	*/
 	public static int getScreenPosX(){return screenPosx;}
 	public static int getScreenPosY(){return screenPosy;}
 	

@@ -19,7 +19,7 @@ import GameState.Background;
 
 public class Area {
 	private String s;
-	private Background bg;
+	public Background bg;
 	private int index;
 	private Player player;
 	public Boolean[][] map;
@@ -27,6 +27,8 @@ public class Area {
 	public int maxX=288,maxY=234;
 	public int middlex=43,middley=30;
 	public int maxscreenposx=87,maxscreenposy=60;
+	private boolean pathtodraw=false;
+	private ArrayList<Point> path;
 	
 	public Area(int index)
 	{
@@ -34,7 +36,8 @@ public class Area {
 		
 		if(index==0)
 		{
-			this.bg=new Background("/maps/60000",4320,3510,15);		
+			this.bg=new Background("/maps/60000",4320,3510,15);	
+			//bg.setPosition();
 		}
 		
 		
@@ -94,7 +97,7 @@ public class Area {
 			oos.close();
 			System.out.println("written");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -105,8 +108,7 @@ public class Area {
 		player.update();
 	}
 	
-	private boolean pathtodraw=false;
-	private ArrayList<Point> path;
+	
 	public void drawPath(ArrayList<Point> path)
 	{
 		pathtodraw=true;
@@ -132,12 +134,13 @@ public class Area {
 			{
 				g.draw(new Line2D.Double(j*tilesize, 0, j*tilesize, 4320));
 			}
-			*/
 			
+			*/
 			
 			int alpha = 127; // 50% transparent
 			Color myColour = new Color(0, 148, 71, alpha);
 			g.setColor(myColour);
+			//mark the map
 			/*
 			for(int i=0;i<maxscreenposx;i++)
 			{
@@ -157,7 +160,12 @@ public class Area {
 					}
 				}
 				
-			}*/
+			}
+			*/
+			
+			
+			//draw path
+			/*
 			if(path!=null){
 			for(int y=0;y<path.size();y++)
 			{
@@ -184,6 +192,7 @@ public class Area {
 				}
 			}
 			}
+			*/
 		}
 		
 	}

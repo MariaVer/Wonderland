@@ -1,30 +1,35 @@
-package GameState;
+package mapper;
 
 import java.awt.Point;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import Entity.Animation;
 import Entity.Direction;
 import Entity.Player;
+import GameState.Area;
 import pathFinding.PathFinding;
 
 
 
-public class GameStateManager 
+public class GameStateManager2 
 {
-	public ArrayList<Area> world=new ArrayList<Area>();
+	public ArrayList<Area2> world=new ArrayList<Area2>();
 	public int CurrentAreaIndex=0;
 	public static Animation anim=new Animation();
+	private boolean bigBrush=false;
 	private int threadCount=0;
 	
-	public GameStateManager()
+	
+	public GameStateManager2()
 	{
 		for(int i=0;i<1;i++)
 		{
-			Area ar=new Area(i);
+			Area2 ar=new Area2(i);
 			world.add(ar);
 		}
+		
 	}
 		
 	public void init()
@@ -44,8 +49,14 @@ public class GameStateManager
 	
 	public void keyPressed(int k)
 	{
-			
-		
+		if(k==KeyEvent.VK_ENTER)
+		{
+			world.get(CurrentAreaIndex).saveMap();
+		}
+		if(k==KeyEvent.VK_CONTROL)
+		{
+			bigBrush=!bigBrush;
+		}
 	}
 	
 	public void keyReleased(int k)
@@ -283,6 +294,41 @@ public class GameStateManager
 		        th.start();
 		        threadCount++;
 			}
+		}
+		if (e.getButton() == MouseEvent.BUTTON3) 
+		{
+			int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize+1;
+			int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize+1;
+			
+			int newx=Player.getPlayerX()-Player.getScreenPosX()+x;
+			int newy=Player.getPlayerY()-Player.getScreenPosY()+y;
+			if(!bigBrush){
+				world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1);
+			}else{
+				world.get(CurrentAreaIndex).changeMap(true, newx-1-1, newy-1-1);
+				world.get(CurrentAreaIndex).changeMap(true, newx-1-1, newy-1);
+				world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1-1);
+				
+				world.get(CurrentAreaIndex).changeMap(true, newx-1+1, newy-1+1);
+				world.get(CurrentAreaIndex).changeMap(true, newx-1+1, newy-1);
+				world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1+1);
+				
+				world.get(CurrentAreaIndex).changeMap(true, newx-1+1, newy-1-1);
+				world.get(CurrentAreaIndex).changeMap(true, newx-1-1, newy-1+1);
+				world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1);
+				
+			}
+			
+		}
+		if (e.getButton() == MouseEvent.BUTTON2)
+		{
+			int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize+1;
+			int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize+1;
+			
+			int newx=Player.getPlayerX()-Player.getScreenPosX()+x;
+			int newy=Player.getPlayerY()-Player.getScreenPosY()+y;
+			world.get(CurrentAreaIndex).changeMap(false, newx-1, newy-1);
+			
 		}
 	}
 

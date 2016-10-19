@@ -1,6 +1,9 @@
 package mapper;
 
 import javax.swing.JPanel;
+
+import GameState.GameStateManager;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.*;
@@ -24,7 +27,7 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
 	private Graphics2D g;
 	
 	//game state manager
-	private GameStateManager gsm;
+	private GameStateManager2 gsm;
 	
 	public GamePanel()
 	{
@@ -32,7 +35,7 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setFocusable(true);
 		requestFocus();
-		gsm =new GameStateManager();
+		gsm =new GameStateManager2();
 		
 	}
 	
