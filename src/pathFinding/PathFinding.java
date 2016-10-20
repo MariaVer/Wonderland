@@ -34,8 +34,8 @@ public class PathFinding {
 	{
 		int dx=sx-tx;
 		int dy=sy-ty;
-		//return Math.abs(dx)+Math.abs(dy);
-		return Math.sqrt(dx*dx+dy*dy);
+		return Math.abs(dx)+Math.abs(dy);
+		//return Math.sqrt(dx*dx+dy*dy);
 		//return 0;
 	}
 	

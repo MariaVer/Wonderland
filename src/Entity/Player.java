@@ -11,11 +11,11 @@ public class Player {
 	private static Animation anim=new Animation();
 	//private BufferedImage[] standing2;
 	private static int playerx,playery;
-	private static int screenPosx,screenPosy;
+	private static double screenPosx,screenPosy;
 	private static int tilesize;
 	public static Direction animType;
-	public static int newScreenPosX;
-	public static int newScreenPosY;
+	public static double newScreenPosX;
+	public static double newScreenPosY;
 	
 	public Player(int tilesize)
 	{
@@ -50,9 +50,10 @@ public class Player {
 	public static int getPlayerX(){return playerx;}
 	public static int getPlayerY(){return playery;}
 	
-	public static void updateScreenPos(int newx,int newy)
+	public static void updateScreenPos(double newx,double newy)
 	{
-		
+		screenPosx=newx;
+		screenPosy=newy;
 	}
 	/*
 	public static void updateScreenPosX(int newx){ 
@@ -102,14 +103,14 @@ public class Player {
 //		th.start();
 	}
 	*/
-	public static int getScreenPosX(){return screenPosx;}
-	public static int getScreenPosY(){return screenPosy;}
+	public static double getScreenPosX(){return screenPosx;}
+	public static double getScreenPosY(){return screenPosy;}
 	
 	public void draw(java.awt.Graphics2D g)
 	{
 		
 		BufferedImage image=anim.getImage();
-		g.drawImage(image,screenPosx*tilesize-70+15,screenPosy*tilesize-110+15,null);
+		g.drawImage(image,(int)(screenPosx*tilesize-70+15),(int)(screenPosy*tilesize-110+15),null);
 		//g.drawImage(image,newScreenPosX-70+15,newScreenPosY-110+15,null);
 		
 	}

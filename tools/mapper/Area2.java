@@ -140,8 +140,8 @@ public class Area2 {
 			{
 				for(int j=0;j<maxscreenposy;j++)
 				{
-					int reali=Player.getPlayerX()-Player.getScreenPosX()+i;
-					int realj=Player.getPlayerY()-Player.getScreenPosY()+j;
+					int reali=Player.getPlayerX()-(int)Player.getScreenPosX()+i;
+					int realj=Player.getPlayerY()-(int)Player.getScreenPosY()+j;
 					if(reali<map.length&&realj<map[1].length)
 					{
 					
@@ -168,8 +168,8 @@ public class Area2 {
 				{
 					for(int j=0;j<maxscreenposy;j++)
 					{
-						int reali=Player.getPlayerX()-Player.getScreenPosX()+i;
-						int realj=Player.getPlayerY()-Player.getScreenPosY()+j;
+						int reali=Player.getPlayerX()-(int)Player.getScreenPosX()+i;
+						int realj=Player.getPlayerY()-(int)Player.getScreenPosY()+j;
 						if(reali<map.length&&realj<map[1].length)
 						{
 						

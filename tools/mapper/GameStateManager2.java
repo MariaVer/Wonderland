@@ -82,8 +82,8 @@ public class GameStateManager2
 			
 			int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize;
 			int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize;
-			int newxx=Player.getPlayerX()-Player.getScreenPosX()+x;
-			int newyy=Player.getPlayerY()-Player.getScreenPosY()+y;
+			int newxx=Player.getPlayerX()-(int)Player.getScreenPosX()+x;
+			int newyy=Player.getPlayerY()-(int)Player.getScreenPosY()+y;
 			//newx and newy are the map coordinates where the player needs to move
 			boolean goodPos=world.get(CurrentAreaIndex).getMap()[newxx][newyy];
 			if(goodPos)
@@ -300,8 +300,8 @@ public class GameStateManager2
 			int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize+1;
 			int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize+1;
 			
-			int newx=Player.getPlayerX()-Player.getScreenPosX()+x;
-			int newy=Player.getPlayerY()-Player.getScreenPosY()+y;
+			int newx=Player.getPlayerX()-(int)Player.getScreenPosX()+x;
+			int newy=Player.getPlayerY()-(int)Player.getScreenPosY()+y;
 			if(!bigBrush){
 				world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1);
 			}else{
@@ -325,8 +325,8 @@ public class GameStateManager2
 			int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize+1;
 			int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize+1;
 			
-			int newx=Player.getPlayerX()-Player.getScreenPosX()+x;
-			int newy=Player.getPlayerY()-Player.getScreenPosY()+y;
+			int newx=Player.getPlayerX()-(int)Player.getScreenPosX()+x;
+			int newy=Player.getPlayerY()-(int)Player.getScreenPosY()+y;
 			world.get(CurrentAreaIndex).changeMap(false, newx-1, newy-1);
 			
 		}

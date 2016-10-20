@@ -71,8 +71,8 @@ public class GameStateManager
 			
 			int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize;
 			int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize;
-			int newxx=Player.getPlayerX()-Player.getScreenPosX()+x;
-			int newyy=Player.getPlayerY()-Player.getScreenPosY()+y;
+			int newxx=Player.getPlayerX()-(int)Player.getScreenPosX()+x;
+			int newyy=Player.getPlayerY()-(int)Player.getScreenPosY()+y;
 			//newx and newy are the map coordinates where the player needs to move
 			boolean goodPos=world.get(CurrentAreaIndex).getMap()[newxx][newyy];
 			if(goodPos)
@@ -103,16 +103,26 @@ public class GameStateManager
 		            public synchronized void run() {
 		            	int threadNumber=threadCount;
 		            	if(path!=null){
-			                for (int i = 0; i < path.size(); i++) {
+			                for (int i = 1; i < path.size(); i++) {
 			                	if(threadNumber<threadCount) 
 			                	{
-			                		threadCount--;
+			                		//threadCount--;
 			                		break;
 			                	}
 			                	if(threadNumber>threadCount)
 			                	{
 			                		threadNumber--;
+			                		
 			                	}
+			                	while(threadCount>1)
+			                	{
+			                		try {
+										Thread.sleep(10);
+									} catch (InterruptedException e) {
+										e.printStackTrace();
+									}
+			                	}
+			                	
 			                    try {
 			                        int newx=path.get(i).x;
 			                        int newy=path.get(i).y;
@@ -211,11 +221,10 @@ public class GameStateManager
 				        					posy=world.get(CurrentAreaIndex).middley;
 				        				}
 			        				}	
+			        	 				
 			        	 			
-			        	 			
-			        				Player.updateScreenPos(posx, posy);
-			        				Player.updatePlayerX(newx);
-			        				Player.updatePlayerY(newy);
+			        				
+			        				
 			        				//System.out.println("updateing bg to "+newx+" "+newy);
 			        				double oldposx=world.get(CurrentAreaIndex).bg.posx;
 		        					double oldposy=world.get(CurrentAreaIndex).bg.posy;
@@ -223,13 +232,19 @@ public class GameStateManager
 		        					double newybg=Player.getPlayerY()*world.get(CurrentAreaIndex).tilesize-Player.getScreenPosY()*world.get(CurrentAreaIndex).tilesize;
 		        					double dxbg=(oldposx-newxbg)/10;
 		        					double dybg=(oldposy-newybg)/10;
-		        					
+		        					double oldpposx=Player.getScreenPosX();
+		        					double oldpposy=Player.getScreenPosY();
+		        					double dxppos=(oldpposx-posx)/10;
+		        					double dyppos=(oldpposy-posy)/10;
 			        				for(int g=1;g<=10;g++)
 			        				{
 			        					world.get(CurrentAreaIndex).bg.setPosition(oldposx-(dxbg*g),oldposy-(dybg*g));
-			        					
+			        					Player.updateScreenPos((oldpposx-(dxppos*g)), (oldpposy-(dyppos*g)));
+			        					//System.out.println("new x: "+Player.getScreenPosX()+" new y: "+Player.getScreenPosY());
 			        					Thread.sleep(20);
 			        				}
+			        				Player.updatePlayerX(newx);
+			        				Player.updatePlayerY(newy);
 			        				world.get(CurrentAreaIndex).bg.setPosition(newxbg,newybg);
 			        				
 			                    } catch (Exception e) {
@@ -277,6 +292,8 @@ public class GameStateManager
 			                
 			                }
 		            	}
+		            	threadCount--;
+		            	
 		            }
 
 		        };		        

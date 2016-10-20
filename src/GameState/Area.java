@@ -167,30 +167,30 @@ public class Area {
 			//draw path
 			/*
 			if(path!=null){
-			for(int y=0;y<path.size();y++)
-			{
-				int pointx=path.get(y).x;
-				int pointy=path.get(y).y;
-				for(int i=0;i<maxscreenposx;i++)
+				for(int y=0;y<path.size();y++)
 				{
-					for(int j=0;j<maxscreenposy;j++)
+					int pointx=path.get(y).x;
+					int pointy=path.get(y).y;
+					for(int i=0;i<maxscreenposx;i++)
 					{
-						int reali=Player.getPlayerX()-Player.getScreenPosX()+i;
-						int realj=Player.getPlayerY()-Player.getScreenPosY()+j;
-						if(reali<map.length&&realj<map[1].length)
+						for(int j=0;j<maxscreenposy;j++)
 						{
-						
-							if (pointx==reali&&pointy==realj)
+							int reali=Player.getPlayerX()-(int)Player.getScreenPosX()+i;
+							int realj=Player.getPlayerY()-(int)Player.getScreenPosY()+j;
+							if(reali<map.length&&realj<map[1].length)
 							{
-								 g.setColor(myColour);
-						         g.fillRect(i*tilesize, j*tilesize, tilesize, tilesize);
+							
+								if (pointx==reali&&pointy==realj)
+								{
+									 g.setColor(myColour);
+							         g.fillRect(i*tilesize, j*tilesize, tilesize, tilesize);
+								}
+							
 							}
-						
 						}
+						
 					}
-					
 				}
-			}
 			}
 			*/
 		}
