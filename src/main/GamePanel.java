@@ -1,8 +1,12 @@
 package main;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.awt.event.*;
 import GameState.GameStateManager;
 
@@ -26,6 +30,11 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
 	//game state manager
 	private GameStateManager gsm;
 	
+	private Cursor customCursor;
+	private BufferedImage image2;
+	private int cont=0;
+	private int threadCount=0;
+	
 	public GamePanel()
 	{
 		super();
@@ -33,6 +42,14 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
 		setFocusable(true);
 		requestFocus();
 		gsm =new GameStateManager();
+		try {
+			image2 = ImageIO.read(getClass().getResourceAsStream("/misc/cursor.gif"));
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 	}
 	
@@ -80,7 +97,9 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
 			if(wait<0) wait=5;
 			try
 			{
+				
 				Thread.sleep(wait);
+				
 			}
 			catch(Exception e)
 			{
@@ -93,6 +112,8 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
 	private void update()
 	{
 		gsm.update();
+		
+		
 	}
 	private void draw()
 	{
@@ -123,16 +144,52 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
 		
 	}
 
-	
+	private boolean runningth=true;
 	public void mouseEntered(MouseEvent e) {
 		gsm.mouseEntered(e);
+		Thread th = new Thread() {
+			
+            public synchronized void run() {
+            	int threadNumber=threadCount;
+            	while(threadNumber>=threadCount)
+            	{
+            		if(threadNumber>threadCount)
+                	{
+                		threadNumber--;
+                		
+                	}
+	            	e.getComponent().setCursor(customCursor);           	
+	            	cont--;
+					if(cont<0)cont=7;
+					customCursor=Toolkit.getDefaultToolkit().createCustomCursor(image2.getSubimage(0,cont*32, 32, 32), new Point(0,0), "cursor");
+					try {
+						this.wait(150);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+            	}
+            	threadNumber--;
+            }
+		};
+		th.start();
+		threadCount++;
+		//InputStream imageURL = this.getClass().getClassLoader().getResourceAsStream("/misc/cursor1.gif");  //.getResource("misc/cursor1.gif");
+		//Image cursor = new ImageIcon(imageURL).getImage();
+		
+		//Image image;
+		//image = new ImageIcon("cursor1.gif").getImage();
+		
+		
+		
+		
 		
 	}
 
 	
 	public void mouseExited(MouseEvent e) {
 		gsm.mouseExited(e);
-		
+		runningth=false;
 	}
 
 	
