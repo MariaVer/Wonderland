@@ -19,7 +19,7 @@ import GameState.Background;
 
 public class Area {
 	private String s;
-	public Background bg;
+	public Background bg,og;
 	private int index;
 	private Player player;
 	public Boolean[][] map;
@@ -37,6 +37,7 @@ public class Area {
 		if(index==0)
 		{
 			this.bg=new Background("/maps/60000",4320,3510,15);	
+			this.og=new Background("/maps/60000O",4320,3510,15);
 			//bg.setPosition();
 		}
 		
@@ -119,6 +120,7 @@ public class Area {
 	{
 		bg.draw(g);
 		player.draw(g);
+		og.draw(g);
 		g.setColor(Color.BLACK);
 		String s=Player.getPlayerX()+" "+Player.getPlayerY();
 		g.drawString(s, 50, 40);
