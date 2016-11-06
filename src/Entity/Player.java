@@ -55,54 +55,7 @@ public class Player {
 		screenPosx=newx;
 		screenPosy=newy;
 	}
-	/*
-	public static void updateScreenPosX(int newx){ 
-		screenPosx=newx;
-//		Thread th = new Thread() {
-//
-//            public synchronized void run() {
-//            	int dx=newx*tilesize-screenPosx*tilesize;
-//            	for(int i=0;i<5;i++)
-//            	{
-//            		newScreenPosX=playerx*tilesize+(dx/5)*i;
-//            		try {
-//						Thread.sleep(40);
-//						System.out.println("sleeping thread x :"+newScreenPosX);
-//					} catch (InterruptedException e) {
-//						
-//						e.printStackTrace();
-//					}
-//            	}
-//            }
-//            
-//		};
-//		th.start();
-	}
-	
-	public static void updateScreenPosY(int newy){ 
-		
-		screenPosy=newy;
-//		Thread th = new Thread() {
-//
-//            public synchronized void run() {
-//            	int dy=newy*tilesize-screenPosy*tilesize;
-//            	for(int i=0;i<5;i++)
-//            	{
-//            		newScreenPosY=playery*tilesize+(dy/5)*i;
-//            		try {
-//						Thread.sleep(40);
-//						System.out.println("sleeping thread y: "+newScreenPosY);
-//					} catch (InterruptedException e) {
-//						
-//						e.printStackTrace();
-//					}
-//            	}
-//            }
-//            
-//		};
-//		th.start();
-	}
-	*/
+
 	public static double getScreenPosX(){return screenPosx;}
 	public static double getScreenPosY(){return screenPosy;}
 	

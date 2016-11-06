@@ -29,6 +29,7 @@ public class Area2 {
 	public int maxscreenposx=87,maxscreenposy=60;
 	private boolean pathtodraw=false;
 	private ArrayList<Point> path;
+	public static int posx=0,posy=0;
 	
 	public Area2(int index)
 	{
@@ -36,7 +37,7 @@ public class Area2 {
 		
 		if(index==0)
 		{
-			this.bg=new Background("/maps/60000",4320,3510,15);		
+			this.bg=new Background("/maps/60000","/maps/60000O",4320,3510,15);		
 		}
 		
 		

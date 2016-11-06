@@ -228,8 +228,8 @@ public class GameStateManager2
 			        				Player.updatePlayerX(newx);
 			        				Player.updatePlayerY(newy);
 			        				//System.out.println("updateing bg to "+newx+" "+newy);
-			        				double oldposx=world.get(CurrentAreaIndex).bg.posx;
-		        					double oldposy=world.get(CurrentAreaIndex).bg.posy;
+			        				double oldposx=world.get(CurrentAreaIndex).posx;
+		        					double oldposy=world.get(CurrentAreaIndex).posy;
 			        				double newxbg=Player.getPlayerX()*world.get(CurrentAreaIndex).tilesize-Player.getScreenPosX()*world.get(CurrentAreaIndex).tilesize;
 		        					double newybg=Player.getPlayerY()*world.get(CurrentAreaIndex).tilesize-Player.getScreenPosY()*world.get(CurrentAreaIndex).tilesize;
 		        					double dxbg=(oldposx-newxbg)/10;

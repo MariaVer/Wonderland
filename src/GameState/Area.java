@@ -13,13 +13,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import Entity.Enemy;
 import Entity.Player;
 import GameState.Background;
 
 
 public class Area {
 	private String s;
-	public Background bg,og;
+	public Background bg;//og;
 	private int index;
 	private Player player;
 	public Boolean[][] map;
@@ -29,15 +30,18 @@ public class Area {
 	public int maxscreenposx=87,maxscreenposy=60;
 	private boolean pathtodraw=false;
 	private ArrayList<Point> path;
+	public static double posx=0,posy=0;
+	private ArrayList<Enemy> enemies;
 	
 	public Area(int index)
 	{
 		this.index=index;
+		enemies=new ArrayList<Enemy>();
 		
 		if(index==0)
 		{
-			this.bg=new Background("/maps/60000",4320,3510,15);	
-			this.og=new Background("/maps/60000O",4320,3510,15);
+			this.bg=new Background("/maps/60000","/maps/60000O",4320,3510,15);	
+			//this.og=new Background("/maps/60000O",4320,3510,15);
 			//bg.setPosition();
 		}
 		
@@ -70,7 +74,7 @@ public class Area {
 		}
 		
 		
-		
+		generateEnemy(1,2);
 		this.player=new Player(tilesize);
 	}
 	
@@ -87,6 +91,17 @@ public class Area {
 	public Boolean[][] getMap()
 	{
 		return map;
+	}
+	
+	public ArrayList<Enemy> getEnemies()
+	{
+		return enemies;
+	}
+
+	public void generateEnemy(int id,int level)
+	{
+		Enemy newenemy= new Enemy(tilesize,id,level);
+		enemies.add(newenemy);
 	}
 	
 	public void saveMap()
@@ -107,6 +122,10 @@ public class Area {
 	{
 		bg.update();
 		player.update();
+		for(int i=0;i<enemies.size();i++)
+		{
+			enemies.get(i).update();
+		}
 	}
 	
 	
@@ -118,9 +137,9 @@ public class Area {
 	
 	public void draw(java.awt.Graphics2D g)
 	{
-		bg.draw(g);
-		player.draw(g);
-		og.draw(g);
+		bg.draw(g,player,enemies);
+		//player.draw(g);
+		//og.draw(g);
 		g.setColor(Color.BLACK);
 		String s=Player.getPlayerX()+" "+Player.getPlayerY();
 		g.drawString(s, 50, 40);
