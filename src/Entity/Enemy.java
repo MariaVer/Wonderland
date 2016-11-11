@@ -20,6 +20,7 @@ public class Enemy implements Entity{
 	public double newScreenPosX;
 	public double newScreenPosY;
 	public int threadCount=0;
+	private boolean notmoving=true;
 	
 	public Enemy(int tilesize, int id,int level)
 	{
@@ -40,14 +41,13 @@ public class Enemy implements Entity{
 	public void update()
 	{
 		anim.update();
-		screenPosx=(posx*tilesize-Area.posx);
-		screenPosy=(posy*tilesize-Area.posy);
-//		int dx=GameStateManager.player.getPosX()-this.posx;
-//		int dy=GameStateManager.player.getPosY()-this.posy;
-//		if((Math.abs(dx)>1)||(Math.abs(dy)>1))
-//		{
-//			//executePath(getNewPath());
-//		}
+		if(notmoving)
+		{
+		screenPosx=(posx*tilesize-GameStateManager.getCurrentArea().posx);
+		screenPosy=(posy*tilesize-GameStateManager.getCurrentArea().posy);
+		}
+		//System.out.println("true posx and posy "+ posx+"  "+posy);
+
 	}
 	public boolean isPlayer()
 	{
@@ -60,15 +60,7 @@ public class Enemy implements Entity{
 		anim.setAnimType(dir);
 	}
 
-	public ArrayList<Point> getNewPath()
-	{
 		
-		PathFinding pather=new PathFinding(GameStateManager.getMap());
-		ArrayList<Point> path = pather.findPath(posx,posy,GameStateManager.player.getPosX(),GameStateManager.player.getPosY());
-		
-		return path;
-	}
-	
 	public void updatePosX(int newx){	posx=newx;}	
 	public void updatePosY(int newy){	posy=newy;}
 	public int getPosX(){return posx;}
@@ -77,8 +69,8 @@ public class Enemy implements Entity{
 	public void updateScreenPos(double newx, double newy)
 	{
 		
-		//screenPosx=newx;
-		//screenPosy=newy;
+		screenPosx=newx;
+		screenPosy=newy;
 	}
 
 	public double getScreenPosX(){return screenPosx;}
@@ -88,17 +80,12 @@ public class Enemy implements Entity{
 	{
 		
 		BufferedImage image=anim.getImage();
-		g.drawImage(image,(int)(screenPosx-70+15),(int)(screenPosy-110+15),null);
+		g.drawImage(image,(int)(screenPosx-70+15),(int)(screenPosy-100+15),null);
 		//g.drawImage(image,newScreenPosX-70+15,newScreenPosY-110+15,null);
 		
 	}
 	
 	
-	private void executePath(ArrayList<Point> path)
-	{
-		
-	}
-
 	@Override
 	public void threadCountInc() {
 		threadCount++;
@@ -117,11 +104,15 @@ public class Enemy implements Entity{
 	public void move(ArrayList<Point> path,Area area) {
 		Navigation nav=new Navigation(path,this,area);
 		threadCount++;
-		nav.run();
-		//System.out.println("getting here  "+threadCount);
+		notmoving=false;
+		nav.start();
+		
 
 	}
 
-	
+	public void setNotMoving()
+	{
+		notmoving=true;
+	}
 	
 }

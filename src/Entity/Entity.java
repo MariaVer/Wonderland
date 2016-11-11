@@ -24,5 +24,6 @@ public interface Entity {
 	public int getThreadCount();
 	public void move(ArrayList<Point> path,Area area);
 	public boolean isPlayer();
+	public void setNotMoving();
 	
 }

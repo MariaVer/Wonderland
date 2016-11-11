@@ -1,6 +1,7 @@
 package GameState;
 
 import java.awt.Point;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
@@ -14,13 +15,14 @@ import pathFinding.PathFinding;
 
 public class GameStateManager 
 {
-	public static ArrayList<Area> world=new ArrayList<Area>();
-	public static int CurrentAreaIndex=0;
+	private static ArrayList<Area> world=new ArrayList<Area>();
+	private static int CurrentAreaIndex=0;
 	public static Animation anim=new Animation();
-	private int threadCount=0;
 	public static Player player;
+	private boolean bigBrush=false;
+	private static int mode;
 	
-	public GameStateManager()
+	public GameStateManager(int mode)
 	{
 		for(int i=0;i<1;i++)
 		{
@@ -28,8 +30,19 @@ public class GameStateManager
 			world.add(ar);
 		}
 		this.player=new Player();
+		this.mode=mode;
+	}
+	
+	public static int getMode()
+	{
+		return mode;
 	}
 		
+	public static Area getCurrentArea()
+	{
+		return world.get(CurrentAreaIndex);
+	}
+	
 	public static Boolean[][] getMap()
 	{
 		return world.get(CurrentAreaIndex).getMap();
@@ -52,8 +65,17 @@ public class GameStateManager
 	
 	public void keyPressed(int k)
 	{
-			
-		
+		if(mode==1)
+		{
+			if(k==KeyEvent.VK_ENTER)
+			{
+				world.get(CurrentAreaIndex).saveMap();
+			}
+			if(k==KeyEvent.VK_CONTROL)
+			{
+				bigBrush=!bigBrush;
+			}	
+		}
 	}
 	
 	public void keyReleased(int k)
@@ -91,10 +113,50 @@ public class GameStateManager
 				Enemy en=world.get(CurrentAreaIndex).getEnemies().get(0);
 				PathFinding pather2=new PathFinding(world.get(CurrentAreaIndex).getMap());
 				ArrayList<Point> path2= pather2.findPath(en.getPosX(),en.getPosY(),player.getPosX(),player.getPosY());
-				en.move(path2, world.get(CurrentAreaIndex));
+				
 				player.move(path, world.get(CurrentAreaIndex));
+				en.move(path2, world.get(CurrentAreaIndex));
 				world.get(CurrentAreaIndex).drawPath(path);
 				
+				
+			}
+		}
+		
+		if(mode==1)
+		{
+			if (e.getButton() == MouseEvent.BUTTON3) 
+			{
+				int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize+1;
+				int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize+1;
+				
+				int newx=player.getPosX()-(int)player.getScreenPosX()+x;
+				int newy=player.getPosY()-(int)player.getScreenPosY()+y;
+				if(!bigBrush){
+					world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1);
+				}else{
+					world.get(CurrentAreaIndex).changeMap(true, newx-1-1, newy-1-1);
+					world.get(CurrentAreaIndex).changeMap(true, newx-1-1, newy-1);
+					world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1-1);
+					
+					world.get(CurrentAreaIndex).changeMap(true, newx-1+1, newy-1+1);
+					world.get(CurrentAreaIndex).changeMap(true, newx-1+1, newy-1);
+					world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1+1);
+					
+					world.get(CurrentAreaIndex).changeMap(true, newx-1+1, newy-1-1);
+					world.get(CurrentAreaIndex).changeMap(true, newx-1-1, newy-1+1);
+					world.get(CurrentAreaIndex).changeMap(true, newx-1, newy-1);
+					
+				}
+				
+			}
+			if (e.getButton() == MouseEvent.BUTTON2)
+			{
+				int x=(int)e.getPoint().getX()/world.get(CurrentAreaIndex).tilesize+1;
+				int y=(int)e.getPoint().getY()/world.get(CurrentAreaIndex).tilesize+1;
+				
+				int newx=player.getPosX()-(int)player.getScreenPosX()+x;
+				int newy=player.getPosY()-(int)player.getScreenPosY()+y;
+				world.get(CurrentAreaIndex).changeMap(false, newx-1, newy-1);
 				
 			}
 		}

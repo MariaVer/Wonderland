@@ -27,7 +27,7 @@ public class Player implements Entity{
 	
 	public Player()
 	{
-		this.tilesize=GameStateManager.world.get(GameStateManager.CurrentAreaIndex).tilesize;
+		this.tilesize=GameStateManager.getCurrentArea().tilesize;
 		playerx=43;
 		screenPosx=43;
 		playery=30;
@@ -112,8 +112,14 @@ public class Player implements Entity{
 		
 		Navigation nav=new Navigation(path,this,area);
 		threadCount++;
-		nav.run();		
+		nav.start();
 		
+		
+	}
+
+	@Override
+	public void setNotMoving() {
+		// TODO Auto-generated method stub
 		
 	}
 	

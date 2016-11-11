@@ -46,8 +46,8 @@ public class Background
 		if(newy<0) newy=0;		
 		if(newx>width-1305)newx=width-1305;
 		if(newy>height-900)newy=height-900;
-		Area.posx=newx;
-		Area.posy=newy;
+		GameStateManager.getCurrentArea().posx=newx;
+		GameStateManager.getCurrentArea().posy=newy;
 		
 		
 	}
@@ -62,8 +62,8 @@ public class Background
 	
 	public void draw(Graphics2D g, Player player, ArrayList<Enemy> enemies)
 	{
-		subimage=image.getSubimage((int)Area.posx, (int)Area.posy, 1305, 900 );
-		subimage2=image2.getSubimage((int)Area.posx, (int)Area.posy, 1305, 900 );
+		subimage=image.getSubimage((int)GameStateManager.getCurrentArea().posx, (int)GameStateManager.getCurrentArea().posy, 1305, 900 );
+		subimage2=image2.getSubimage((int)GameStateManager.getCurrentArea().posx, (int)GameStateManager.getCurrentArea().posy, 1305, 900 );
 		g.drawImage(subimage,0,0, null);
 		player.draw(g);
 		for(int i=0;i<enemies.size();i++)
@@ -82,7 +82,7 @@ public class Background
 
 		
 		//System.out.println("new positions: "+posx+"  "+posy);
-		subimage=image.getSubimage((int)Area.posx, (int)Area.posy, 1305, 900 );
+		subimage=image.getSubimage((int)GameStateManager.getCurrentArea().posx, (int)GameStateManager.getCurrentArea().posy, 1305, 900 );
 		
 		g.drawImage(subimage,0,0, null);
 		

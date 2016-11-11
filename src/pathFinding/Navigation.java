@@ -7,6 +7,7 @@ import Entity.Direction;
 import Entity.Entity;
 import Entity.Player;
 import GameState.Area;
+import GameState.GameStateManager;
 
 
 public class Navigation extends Thread{
@@ -160,20 +161,35 @@ public class Navigation extends Thread{
     					double oldpposy=entity.getScreenPosY();
     					double dxppos=(oldpposx-posx)/10;
     					double dyppos=(oldpposy-posy)/10;
-    					if(entity.isPlayer())
-    					{
+    					double myoldx=entity.getScreenPosX();
+    					double myoldy=entity.getScreenPosY();
 	        				for(int g=1;g<=10;g++)
 	        				{
-	        					area.bg.setPosition(oldposx-(dxbg*g),oldposy-(dybg*g));
-	        					//world.get(CurrentAreaIndex).og.setPosition(oldposx-(dxbg*g),oldposy-(dybg*g));
-	        					entity.updateScreenPos((oldpposx-(dxppos*g)), (oldpposy-(dyppos*g)));
-	        					//System.out.println("new x: "+Player.getScreenPosX()+" new y: "+Player.getScreenPosY());
+	        					if(entity.isPlayer())
+	        					{
+	        						area.bg.setPosition(oldposx-(dxbg*g),oldposy-(dybg*g));
+	        						entity.updateScreenPos((oldpposx-(dxppos*g)), (oldpposy-(dyppos*g)));
+	        					}else
+	        					{
+	        						double ddx=(myoldx-(newx*area.tilesize-area.posx))/10;
+	        						double ddy=(myoldy-(newy*area.tilesize-area.posy))/10;
+	        						entity.updateScreenPos(myoldx-ddx*g,myoldy-ddy*g);
+	        					}
+	        					
 	        					Thread.sleep(20);
+	        				}
+	        				if(!entity.isPlayer())
+	        				{
+	        					//entity.updateScreenPos((newx*area.tilesize-area.posx),(newy*area.tilesize-area.posy));
+	        					//System.out.println("WRONG posx and posy "+ newx+"  "+newy);
+
 	        				}
 	        				entity.updatePosX(newx);
 	        				entity.updatePosY(newy);
-	        				area.bg.setPosition(newxbg,newybg);
-    					}
+	        				if(entity.isPlayer())
+        					{
+	        					area.bg.setPosition(newxbg,newybg);
+        					}
         				//world.get(CurrentAreaIndex).og.setPosition(newxbg,newybg);
         				
                     } catch (Exception e) {
@@ -222,6 +238,7 @@ public class Navigation extends Thread{
                 }
         	}
         	entity.threadCountDec();
+        	entity.setNotMoving();
         	
         }   	        
     

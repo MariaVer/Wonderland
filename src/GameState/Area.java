@@ -30,7 +30,7 @@ public class Area {
 	public int maxscreenposx=87,maxscreenposy=60;
 	private boolean pathtodraw=false;
 	private ArrayList<Point> path;
-	public static double posx=0,posy=0;
+	public double posx=0,posy=0;
 	private ArrayList<Enemy> enemies;
 	
 	public Area(int index)
@@ -143,77 +143,80 @@ public class Area {
 		g.setColor(Color.BLACK);
 		String s=GameStateManager.player.getPosX()+" "+GameStateManager.player.getPosY();
 		g.drawString(s, 50, 40);
-		if(pathtodraw)
+		if(GameStateManager.getMode()==1)
 		{
-			//draw grid
-			/*
-			for(int i=0;i<maxX;i++)
+			if(pathtodraw)
 			{
-				g.draw(new Line2D.Double(0, i*tilesize, 3510, i*tilesize));
-			}
-			for(int j=0;j<maxY;j++)
-			{
-				g.draw(new Line2D.Double(j*tilesize, 0, j*tilesize, 4320));
-			}
-			
-			*/
-			
-			int alpha = 127; // 50% transparent
-			Color myColour = new Color(0, 148, 71, alpha);
-			g.setColor(myColour);
-			//mark the map
-			/*
-			for(int i=0;i<maxscreenposx;i++)
-			{
-				for(int j=0;j<maxscreenposy;j++)
+				//draw grid
+				
+				for(int i=0;i<maxX;i++)
 				{
-					int reali=Player.getPlayerX()-Player.getScreenPosX()+i;
-					int realj=Player.getPlayerY()-Player.getScreenPosY()+j;
-					if(reali<map.length&&realj<map[1].length)
+					g.draw(new Line2D.Double(0, i*tilesize, 3510, i*tilesize));
+				}
+				for(int j=0;j<maxY;j++)
+				{
+					g.draw(new Line2D.Double(j*tilesize, 0, j*tilesize, 4320));
+				}
+				
+				
+				
+				int alpha = 127; // 50% transparent
+				Color myColour = new Color(0, 148, 71, alpha);
+				g.setColor(myColour);
+				//mark the map
+				
+				for(int i=0;i<maxscreenposx;i++)
+				{
+					for(int j=0;j<maxscreenposy;j++)
 					{
-					
-						if (map[reali][realj])
+						int reali=(int)(GameStateManager.player.getPosX()-GameStateManager.player.getScreenPosX()+i);
+						int realj=(int)(GameStateManager.player.getPosY()-GameStateManager.player.getScreenPosY()+j);
+						if(reali<map.length&&realj<map[1].length&&reali>=0&&realj>=0)
 						{
-							 g.setColor(myColour);
-					         g.fillRect(i*tilesize, j*tilesize, tilesize, tilesize);
+						
+							if (map[reali][realj])
+							{
+								 g.setColor(myColour);
+						         g.fillRect(i*tilesize, j*tilesize, tilesize, tilesize);
+							}
+						
 						}
+					}
 					
+				}
+				
+				
+				
+				//draw path
+				
+				if(path!=null){
+					for(int y=0;y<path.size();y++)
+					{
+						int pointx=path.get(y).x;
+						int pointy=path.get(y).y;
+						for(int i=0;i<maxscreenposx;i++)
+						{
+							for(int j=0;j<maxscreenposy;j++)
+							{
+								int reali=GameStateManager.player.getPosX()-(int)GameStateManager.player.getScreenPosX()+i;
+								int realj=GameStateManager.player.getPosY()-(int)GameStateManager.player.getScreenPosY()+j;
+								if(reali<map.length&&realj<map[1].length)
+								{
+								
+									if (pointx==reali&&pointy==realj)
+									{
+										 g.setColor(myColour);
+								         g.fillRect(i*tilesize, j*tilesize, tilesize, tilesize);
+									}
+								
+								}
+							}
+							
+						}
 					}
 				}
 				
 			}
-			*/
-			
-			
-			//draw path
-			/*
-			if(path!=null){
-				for(int y=0;y<path.size();y++)
-				{
-					int pointx=path.get(y).x;
-					int pointy=path.get(y).y;
-					for(int i=0;i<maxscreenposx;i++)
-					{
-						for(int j=0;j<maxscreenposy;j++)
-						{
-							int reali=Player.getPlayerX()-(int)Player.getScreenPosX()+i;
-							int realj=Player.getPlayerY()-(int)Player.getScreenPosY()+j;
-							if(reali<map.length&&realj<map[1].length)
-							{
-							
-								if (pointx==reali&&pointy==realj)
-								{
-									 g.setColor(myColour);
-							         g.fillRect(i*tilesize, j*tilesize, tilesize, tilesize);
-								}
-							
-							}
-						}
-						
-					}
-				}
-			}
-			*/
 		}
 		
 	}

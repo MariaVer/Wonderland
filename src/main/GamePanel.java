@@ -34,14 +34,16 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
 	private BufferedImage image2;
 	private int cont=0;
 	private int threadCount=0;
+	private int mode;
 	
-	public GamePanel()
+	public GamePanel(int mode)
 	{
 		super();
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setFocusable(true);
 		requestFocus();
-		gsm =new GameStateManager();
+		this.mode=mode;
+		gsm =new GameStateManager(mode);
 		try {
 			image2 = ImageIO.read(getClass().getResourceAsStream("/misc/cursor.gif"));
 			
