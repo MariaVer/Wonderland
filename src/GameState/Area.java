@@ -22,7 +22,7 @@ public class Area {
 	private String s;
 	public Background bg;//og;
 	private int index;
-	private Player player;
+	
 	public Boolean[][] map;
 	public int tilesize=15;
 	public int maxX=288,maxY=234;
@@ -75,7 +75,7 @@ public class Area {
 		
 		
 		generateEnemy(1,2);
-		this.player=new Player(tilesize);
+		
 	}
 	
 	public void changeMap(boolean stuff,int x,int y)
@@ -121,7 +121,7 @@ public class Area {
 	public void update()
 	{
 		bg.update();
-		player.update();
+		GameStateManager.player.update();
 		for(int i=0;i<enemies.size();i++)
 		{
 			enemies.get(i).update();
@@ -137,11 +137,11 @@ public class Area {
 	
 	public void draw(java.awt.Graphics2D g)
 	{
-		bg.draw(g,player,enemies);
+		bg.draw(g,GameStateManager.player,enemies);
 		//player.draw(g);
 		//og.draw(g);
 		g.setColor(Color.BLACK);
-		String s=Player.getPlayerX()+" "+Player.getPlayerY();
+		String s=GameStateManager.player.getPosX()+" "+GameStateManager.player.getPosY();
 		g.drawString(s, 50, 40);
 		if(pathtodraw)
 		{
